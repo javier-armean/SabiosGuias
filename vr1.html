@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabios guías</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+
+  <!-- A-frame library -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+
+  <!-- CSS stylesheet -->
+  <link href="css/styles.css" rel="stylesheet" type="text/css">
+
+  <!--Sky change script-->
+  <script src="js/change_site.js"></script>
+
+  <!--Toogle sound script-->
+  <script src="js/toggle_sound.js"></script>
+
+</head>
+
+
+<body>
+  
+  <div class="button-container">
+    <button id="sound-button">
+      <img id="sound-img" src="img/volume_mute_icon.png" alt="Volume mute icon">
+    </button>
+  </div>
+
+  <a-scene>
+
+    <a-camera>
+      <a-cursor raycaster="objects: .clickable"></a-cursor>
+    </a-camera>
+
+    <a-assets>
+      <img id="point-1" src="img/Casa_del_Aguardiente.jpg" alt="Casa del Aguardiente">
+      <img id="point-2" src="img/Casa_El_Almendrillo.jpg" alt="Casa El Almendrillo">
+      <img id="point-3" src="img/Ermita_Nuestra_Señora_Candelaria.jpg" alt="Ermita Nuestra Señora Candelaria">
+      <img id="point-4" src="img/Plaza_Las_Lapas.jpg" alt="Plaza Las Lapas">
+      <img id="point-5" src="img/Casa_Agua_Nueva.jpg" alt="Casa Agua Nueva">
+      <img id="point-6" src="img/Campo_La_Frontera.jpg" alt="Campo La Frontera">
+      <img id="arrow-icon" src="img/arrow_icon.png" alt="Arrow Icon">
+      <audio id="click-sound" src="ogg/click_sound.ogg" preload="auto"></audio>
+      <audio id="birds-sound" src="ogg/birds_sound.ogg" preload="auto"></audio>
+
+      <video id="ElHierro-video" src="vid/El_Hierro_video.mp4" autoplay loop="loop" preload="auto"></video>
+    </a-assets>
+
+    <!--Menu title-->
+    <a-entity id="menu-title-parent" position="0 1.9 -1">
+      <a-entity id="menu-title-text-1"
+        text="value:Ruta de la vina y la mudada; color:#FFFFFF; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/lora/Lora-BoldItalic.json;"
+        position="0 0 0"></a-entity>
+      <a-entity id="menu-title-text-2"
+        text="value:~; color:#FFFFFF; shader: msdf; font:https://raw.githubusercontent.com/etiennepinchon/aframe-fonts/master/fonts/lora/Lora-BoldItalic.json;"
+        position="0.27 0.017 0"></a-entity> <!-- There was no any ñ character in this library-->
+    </a-entity>
+
+    <a-entity position="-1.7 1.5 -3">
+
+      <!--Point 1 - Casa del Agua Ardiente-->
+      <a-entity>
+        <a-sphere color="green" position="-2.2 2 -5" radius="0.1" visible="true">
+        </a-sphere>
+        <a-plane  color="#18171c" scale="1" position="0 2 -5" width="4" height="0.5"
+          change-site="img: #point-1" sound="on:mouseenter; src:#click-sound">
+          <a-text value="Casa del Aguardiente" color="white" align="center"></a-text>
+        </a-plane>
+        <a-video src="#ElHierro-video" width="2.5" height="2.5" position="3.5 0.65 -4"></a-video>
+      </a-entity>
+
+      <!-- Point 2 - Casa El Almendrillo-->
+      <a-entity>
+        <a-sphere color="green" position="-2.2 1.5 -5" radius="0.1" visible="false">
+        </a-sphere>
+        <a-plane class="clickable" color="#18171c" position="0 1.5 -5" width="4" height=".5" change-site="img: #point-2"
+          sound="on:mouseenter; src:#click-sound">
+          <a-text value="Casa El Almendrillo" color="gray" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+      <!-- Point 3 - Ermita Nuestra Señora de Candelaria-->
+      <a-entity>
+        <a-sphere color="green" position="-2.2 1 -5" radius="0.1" visible="false">
+        </a-sphere>
+        <a-plane class="clickable" color="#18171c" position="0 1 -5" width="4" height=".5" change-site="img: #point-3"
+          sound="on:mouseenter; src:#click-sound">
+          <a-text value="Ermita Nuestra Sra. de Candelaria" color="gray" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+      <!-- Point 4 - Plaza de Las Lapas-->
+      <a-entity>
+        <a-sphere color="green" position="-2.2 0.5 -5" radius="0.1" visible="false">
+        </a-sphere>
+        <a-plane class="clickable" color="#18171c" position="0 0.5 -5" width="4" height=".5" change-site="img: #point-4"
+          sound="on:mouseenter; src:#click-sound">
+          <a-text value="Plaza de las Lapas" color="gray" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+
+      <!-- Punto 5 - Casa Agua Nueva -->
+      <a-entity>
+        <a-sphere color="green" position="-2.2 0 -5" radius="0.1" visible="false">
+        </a-sphere>
+        <a-plane class="clickable" color="#18171c" position="0 0 -5" width="4" height=".5" change-site="img: #point-5"
+          sound="on:mouseenter; src:#click-sound">
+          <a-text value="Casa Agua Nueva" color="gray" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+
+      <!-- Punto 6 - Campo La Frontera-->
+      <a-entity>
+        <a-sphere color="green" position="-2.2 -0.5 -5" radius="0.1" visible="false">
+        </a-sphere>
+        <a-plane class="clickable" color="#18171c" position="0 -0.5 -5" width="4" height=".5" change-site="img: #point-6"
+          sound="on:mouseenter; src:#click-sound">
+          <a-text value="Campo de la Frontera" color="gray" align="center"></a-text>
+        </a-plane>
+      </a-entity>
+
+    </a-entity>
+
+    <a-sky id="my-sky" src="#point-1" sound="src: #birds-sound; loop: true" sounding="true"></a-sky>
+
+  </a-scene>
+
+</body>
+
+</html>
